@@ -106,6 +106,8 @@ public class InterfazCorredor extends javax.swing.JFrame {
             corredores[i] = new Corredor("Corredor " + (i + 1));
             hilos[i] = new Thread(corredores[i]);
             hilos[i].start();
+            corredor1ProgressBar.setValue(corredores[i].getMetrosRecorridos());
+            corredor2ProgressBar.setValue(corredores[i].getMetrosRecorridos());
         }
 
         for (int i = 0; i < corredores.length; i++) {

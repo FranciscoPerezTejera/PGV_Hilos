@@ -39,12 +39,10 @@ public class Corredor implements Runnable {
             
             try {
                 Thread.sleep(tiempoDescanso);
-                System.out.println("EL corredor: " + this.getNombre() + " ha recorrido " + this.getMetrosRecorridos() + " metros, está descansando " + tiempoDescanso + " milisegundos");
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 return;
             }
         }
-        System.out.println(nombre + " ha terminado la carrera.");
     }
 }

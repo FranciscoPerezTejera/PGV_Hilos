@@ -2,9 +2,12 @@ package Corredores;
 
 public class MainCorredores {
     
-    public static void SimulacionDeCarrera() {
+    public static void main(String [] argum) {
         
-        Corredor [] corredores = new Corredor[2];
+        InterfazCorredor nuevaInterfazCorredor = new InterfazCorredor();
+        nuevaInterfazCorredor.setVisible(true);
+        
+        /*Corredor [] corredores = new Corredor[2];
         Thread [] hilos = new Thread[corredores.length];
 
         for (int i = 0; i < corredores.length; i++) {
@@ -29,8 +32,6 @@ public class MainCorredores {
             }
         }
 
-        System.out.println("El ganador de la carrera es: " + ganador.nombre + " con una distancia de " + ganador.getMetrosRecorridos() + " metros.");
+        System.out.println("El ganador de la carrera es: " + ganador.nombre + " con una distancia de " + ganador.getMetrosRecorridos() + " metros.");*/
     }
-    
-    
 }
