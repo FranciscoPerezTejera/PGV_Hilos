@@ -14,7 +14,7 @@ public class ColaNoConcurrente implements Runnable {
        for (Integer i : cola) {
            System.out.println("*");
        }
-        System.out.println("Tamaño cola: " + cola.size());
+        System.out.println("TamaÃ±o cola: " + cola.size());
     }
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {

@@ -1,13 +1,16 @@
 package Corredores;
 
 import java.util.Random;
+import javax.swing.JProgressBar;
+import javax.swing.SwingUtilities;
 
 public class Corredor implements Runnable {
 
-    public String nombre;
-    public int metrosRecorridos;
+    private String nombre;
+    private int metrosRecorridos;
+    private JProgressBar distanciaProgressBar;
 
-    public Corredor(String nombre) {
+    public Corredor(String nombre, JProgressBar progressBar) {
         this.nombre = nombre;
         this.metrosRecorridos = 0;
     }
@@ -27,6 +30,14 @@ public class Corredor implements Runnable {
     public void setMetrosRecorridos(int metrosRecorridos) {
         this.metrosRecorridos = metrosRecorridos;
     }
+
+    public JProgressBar getDistanciaProgressBar() {
+        return distanciaProgressBar;
+    }
+
+    public void setDistanciaProgressBar(JProgressBar distanciaProgressBar) {
+        this.distanciaProgressBar = distanciaProgressBar;
+    }
     
     @Override
     public void run() {
@@ -35,8 +46,14 @@ public class Corredor implements Runnable {
             int distanciaAvanzada = random.nextInt(10) + 1;
             metrosRecorridos += distanciaAvanzada;
 
-            int tiempoDescanso = 1000 / (distanciaAvanzada * 10);
-            
+            int tiempoDescanso = 1000 / (i + 1);
+             SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    distanciaProgressBar.setValue(metrosRecorridos);
+                    distanciaProgressBar.setString(metrosRecorridos + " metros");
+                }
+            });
             try {
                 Thread.sleep(tiempoDescanso);
             } catch (InterruptedException e) {
